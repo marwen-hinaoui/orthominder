@@ -1,13 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import MainStacks from './src/stacks/MainStacks';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+import RootStack from './src/stacks/RootStack';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 
 export default function App() {
   return (
+    <Provider store={store}>
         <NavigationContainer>
-          <MainStacks />
+          <RootStack />
         </NavigationContainer>
+    </Provider>
   );
 }
 
