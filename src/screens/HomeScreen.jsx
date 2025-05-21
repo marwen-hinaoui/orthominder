@@ -1,13 +1,13 @@
 import { View, Text, Button } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux';
-import { clear_token } from '../redux/slices';
+import { clear_storage } from '../redux/slices';
 
 export default function HomeScreen({navigation}) {
   const dispatch = useDispatch()
 
   const logout = async () =>{
-      dispatch(clear_token())
+      dispatch(clear_storage())
   }
   return (
     <SafeAreaView>

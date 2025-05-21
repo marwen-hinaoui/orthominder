@@ -4,8 +4,8 @@ import { FONTSIZE } from "../../constants/FontSizes";
 
 export const AuthStyles = StyleSheet.create({
     image:{
-        width:420,
-        height:420,
+        width:430,
+        height:430,
     },
     container:{
         display:'flex',
@@ -18,7 +18,7 @@ export const AuthStyles = StyleSheet.create({
         color:COLORS.BLACK,
         fontSize:FONTSIZE.PRIMARY,
         fontWeight:'bold',
-        marginTop:1,
+        marginTop: 4,
 
     }
 

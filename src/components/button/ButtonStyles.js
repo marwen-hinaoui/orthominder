@@ -18,7 +18,7 @@ export const ButtonStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 12,
-        paddingVertical: 6,
+        paddingVertical: 11,
     }
 
 })

@@ -6,20 +6,24 @@ import * as SecureStore from 'expo-secure-store';
 const appSlices = createSlice ({
     name:"app",
     initialState:{
-    token : null,
+    user : null,
+    loginLoading : false,
     },
     reducers:{
-        set_token: (state, action) => {
-            state.token = action.payload
-            SecureStore.setItemAsync('token', action.payload)
+        set_storage: (state, action) => {
+            state.user = action.payload
+            SecureStore.setItemAsync('user', JSON.stringify(action.payload))
         },
-        clear_token: (state, _) =>{
-            SecureStore.deleteItemAsync('token')
-            state.token = null
+        clear_storage: (state, _) =>{
+            SecureStore.deleteItemAsync('user')
+            state.user = null
+        },
+        set_login_loading: (state, action) =>{
+            state.loginLoading = action.payload
         }
     }
 })
 
 
-export const { set_token, clear_token } = appSlices.actions
+export const { set_storage, clear_storage, set_login_loading } = appSlices.actions
 export default appSlices.reducer
