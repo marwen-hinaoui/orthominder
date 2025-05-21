@@ -4,10 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function PhotoScreen() {
   return (
-    <SafeAreaView>
+
         <View>
             <Text>PhotoScreen</Text>
         </View>
-    </SafeAreaView>
+
   )
 }

@@ -29,9 +29,7 @@ export default function ProfileScreen() {
     useCallback(() => {
       const get_user = async () => {
         setLoading(true)
-        const res = await get_user_data(user)
-        console.log(res);
-        
+        const res = await get_user_data(user)        
         if (res.resData) {            
           setUserData(res.resData)
         }

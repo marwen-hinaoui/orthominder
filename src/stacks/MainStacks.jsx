@@ -9,6 +9,8 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
 import { useDispatch } from 'react-redux';
 import { clear_storage } from '../redux/slices'
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import AppointementScreen from '../screens/Appointement/AppointementScreen';
 
 const Stack = createBottomTabNavigator()
 
@@ -49,6 +51,15 @@ export default function MainStacks() {
           header: () => <Header title="Photos" />,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="images" size={size} color={color} />
+          )
+        }}
+      />
+      <Stack.Screen name='Appointement' component={ AppointementScreen } 
+        options={{
+          headerShown: true,
+          header: () => <Header title="Appointement" />,
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome6 name="user-doctor" size={size} color={color} />
           )
         }}
       />
