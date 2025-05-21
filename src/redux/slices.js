@@ -12,7 +12,7 @@ const appSlices = createSlice ({
     reducers:{
         set_storage: (state, action) => {
             state.user = action.payload
-            SecureStore.setItemAsync('user', JSON.stringify(action.payload))
+            SecureStore.setItem('user', JSON.stringify(action.payload))
         },
         clear_storage: (state, _) =>{
             SecureStore.deleteItemAsync('user')

@@ -13,6 +13,7 @@ import { login } from '../../api/login';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Toast from 'react-native-toast-message';
+import { COLORS } from '../../constants/colors';
 
 
 const LoginSchema = Yup.object().shape({
@@ -51,9 +52,8 @@ const showToast = (type, text) => {
     const res = await login(userData)
 
     if (res.resData) {
-      
       let userStorage = {
-        'token': res.resData.access,
+        'refresh': res.resData.refresh,
         'id': res.resData.patient.id
       }
       dispatch(set_storage(userStorage))
@@ -65,7 +65,7 @@ const showToast = (type, text) => {
       }
     }
     dispatch(set_login_loading(false))
-
+    
   }
 
 
@@ -114,6 +114,7 @@ const showToast = (type, text) => {
                 icon={'enter'}
                 width={333}
                 loading={loading}
+                backgroundColor={COLORS.PRIMARY}
               />
               {/* <Link> */}
                 <Text style={AuthStyles.text}>Forget password?</Text>

@@ -4,6 +4,7 @@ import { FONTSIZE, ICONSIZE } from '../constants/FontSizes'
 import { COLORS } from '../constants/colors'
 
 import { useEffect, useRef } from 'react'
+import CustomText from './CustomText'
 
 const CustomTextInput = ({ iconName, placeholder, value, setState, isPassword, isPasswordHidden, setIsPasswordHiden, error, errors_touched }) => {
   const animation = useRef(new Animated.Value(0)).current
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     width: 333,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 1,
