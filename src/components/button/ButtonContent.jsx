@@ -1,5 +1,4 @@
 import { View, Text } from 'react-native'
-import { BarIndicator } from 'react-native-indicators'
 import { COLORS } from '../../constants/colors'
 import { ICONSIZE } from '../../constants/FontSizes'
 import { Ionicons } from '@expo/vector-icons'

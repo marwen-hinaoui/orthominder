@@ -5,7 +5,6 @@ import * as SecureStore from 'expo-secure-store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { set_storage } from '../redux/slices';
-import { BarIndicator } from 'react-native-indicators';
 import { COLORS } from '../constants/colors';
 import { ICONSIZE } from '../constants/FontSizes';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
