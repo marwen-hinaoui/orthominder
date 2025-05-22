@@ -3,7 +3,7 @@ import { FONTSIZE, ICONSIZE } from "../../constants/FontSizes";
 
 export const ProfileStyles = StyleSheet.create({
     container:{
-        paddingTop:35,
+  
         display:'flex',
         alignItems:'center',
     },

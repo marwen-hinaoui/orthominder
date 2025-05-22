@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons'
 import Card from '../../components/Card'
 import ContentWrapper from '../../components/ContentWrapper'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
+import Loading from '../../components/Loading'
 
 
 export default function ProfileScreen() {
@@ -43,7 +44,7 @@ export default function ProfileScreen() {
 
     
     if(loading){
-        return(<BarIndicator color={COLORS.PRIMARY} size={ICONSIZE.LARGE} />)
+        return <Loading />
     }
     return userData && !loading &&  (
         <SafeAreaView>

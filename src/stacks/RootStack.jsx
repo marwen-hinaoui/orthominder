@@ -8,6 +8,8 @@ import { set_storage } from '../redux/slices';
 import { BarIndicator } from 'react-native-indicators';
 import { COLORS } from '../constants/colors';
 import { ICONSIZE } from '../constants/FontSizes';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import Loading from '../components/Loading';
 
 const Stack = createNativeStackNavigator()
 
@@ -33,8 +35,10 @@ export default function RootStack() {
   }, [])
 
   if (loading) {
-    return (<BarIndicator color={COLORS.PRIMARY} size={ICONSIZE.LARGE} />)
-  }
+      return (
+        <Loading />
+      )
+    }
 
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -45,3 +49,12 @@ export default function RootStack() {
       </Stack.Navigator>
     )
 }
+
+const styles = StyleSheet.create({
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: COLORS.WHITE, 
+    }
+});

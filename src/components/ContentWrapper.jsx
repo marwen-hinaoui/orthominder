@@ -1,5 +1,5 @@
 import { View, StyleSheet, Dimensions } from 'react-native'
-const { height } = Dimensions.get('window');
+const { height } = Dimensions.get('window')
 
 export default function ContentWrapper({ children }) {
   return (
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   container: {
     height: height,
     padding: 16,
-    marginTop: -30,
+
 
   }
 })

@@ -22,7 +22,7 @@ export default function MainStacks() {
   return (
     <Stack.Navigator
         screenOptions={{
-        tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={0.1}  />,
+        tabBarButton: (props) => <TouchableOpacity {...props}  activeOpacity={0.1}  />,
           headerShown: false,
           tabBarShowLabel: false,
           tabBarActiveTintColor: COLORS.PRIMARY,

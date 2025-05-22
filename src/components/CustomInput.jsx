@@ -4,9 +4,21 @@ import { FONTSIZE, ICONSIZE } from '../constants/FontSizes'
 import { COLORS } from '../constants/colors'
 
 import { useEffect, useRef } from 'react'
-import CustomText from './CustomText'
+// import CustomText from './CustomText' // Removed as it's not used in the provided snippet
 
-const CustomTextInput = ({ iconName, placeholder, value, setState, isPassword, isPasswordHidden, setIsPasswordHiden, error, errors_touched }) => {
+const CustomTextInput = ({
+  iconName,
+  placeholder,
+  value,
+  setState,
+  isPassword,
+  isPasswordHidden,
+  setIsPasswordHiden,
+  error,
+  errors_touched,
+
+
+}) => {
   const animation = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
@@ -24,12 +36,14 @@ const CustomTextInput = ({ iconName, placeholder, value, setState, isPassword, i
       }).start()
     }
   }, [error])
+
   const translateY = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [-10, 0], 
-  }) 
-  
+    outputRange: [-10, 0],
+  })
+
   return (
+
     <View style={error && errors_touched ? {marginBottom: 0} : {marginBottom: 12}}>
       <View style={styles.container}>
         <Ionicons name={iconName} size={ICONSIZE.PRIMARY} color={error && errors_touched ? COLORS.DANGER : COLORS.BLACK} style={styles.icon} />
@@ -43,16 +57,16 @@ const CustomTextInput = ({ iconName, placeholder, value, setState, isPassword, i
         />
         {isPassword && (
           !isPasswordHidden ? (
-            <Ionicons 
-              name="eye-off" 
-              size={ICONSIZE.SMALL} 
-              onPress={() => setIsPasswordHiden(true)} 
+            <Ionicons
+              name="eye-off"
+              size={ICONSIZE.SMALL}
+              onPress={() => setIsPasswordHiden(true)}
             />
           ) : (
-            <Ionicons 
-              name="eye" 
-              size={ICONSIZE.SMALL} 
-              onPress={() => setIsPasswordHiden(false)} 
+            <Ionicons
+              name="eye"
+              size={ICONSIZE.SMALL}
+              onPress={() => setIsPasswordHiden(false)}
             />
           )
         )}
@@ -60,24 +74,20 @@ const CustomTextInput = ({ iconName, placeholder, value, setState, isPassword, i
 
       {error && errors_touched && (
         <Animated.View
-        style={{
-          opacity: animation,
-          transform: [{ translateY }],
-
-          minHeight: FONTSIZE.SMALL,
-        }}>
-          
+          style={{
+            opacity: animation,
+            transform: [{ translateY }],
+            minHeight: FONTSIZE.SMALL,
+          }}>
           <Text style={styles.error}>{error}</Text>
         </Animated.View>
       )}
-      
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: 333,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.WHITE,
@@ -85,12 +95,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 1,
     elevation: 999,
-
   },
   icon: {
     marginRight: 8,
   },
   input: {
+
     flex: 1,
     color: '#000',
     fontSize: FONTSIZE.PRIMARY,
@@ -100,11 +110,7 @@ const styles = StyleSheet.create({
     color: COLORS.DANGER,
     paddingLeft: 3,
     marginBottom: 7
-
-
-    
   }
- 
 })
 
 export default CustomTextInput

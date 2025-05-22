@@ -1,4 +1,4 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, ActivityIndicator } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch, useSelector } from 'react-redux';
 import { set_login_loading, set_storage } from '../../redux/slices';
@@ -14,6 +14,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Toast from 'react-native-toast-message';
 import { COLORS } from '../../constants/colors';
+import { ICONSIZE } from '../../constants/FontSizes';
+import Loading from '../../components/Loading';
 
 
 const LoginSchema = Yup.object().shape({
@@ -68,23 +70,24 @@ const showToast = (type, text) => {
     
   }
 
-
   return (
     <SafeAreaView>
       <View style={AuthStyles.container}>
         <Toast />
-        <View>
+        <View >
           <Image source={AutrhIamge} style={AuthStyles.image} />
         </View>
+
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={LoginSchema}
           onSubmit={(values) => onLogin(values)}
+          
         >
           {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-            <View>
+            <View style={AuthStyles.form} >
               <CustomTextInput
-                key={1}
+
                 iconName={'mail'}
                 placeholder={'Email'}
                 value={values.email}
@@ -95,7 +98,7 @@ const showToast = (type, text) => {
 
 
               <CustomTextInput
-                key={2}
+
                 iconName={'lock-open'}
                 placeholder={'Password'}
                 value={values.password}
@@ -108,11 +111,10 @@ const showToast = (type, text) => {
               />
 
               <CustomButton
-                key={3}
+
                 name={'Login'}
                 callback={handleSubmit}
                 icon={'enter'}
-                width={333}
                 loading={loading}
                 backgroundColor={COLORS.PRIMARY}
               />

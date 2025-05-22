@@ -1,16 +1,20 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS } from "../../constants/colors";
 import { FONTSIZE } from "../../constants/FontSizes";
+const { height } = Dimensions.get('window')
 
 export const AuthStyles = StyleSheet.create({
     image:{
-        width:430,
-        height:430,
+        width:250,
+        height:250,
+        resizeMode:'none',
+        marginBottom:-30
     },
     container:{
         display:'flex',
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'space-evenly',
+        height:height,
 
     },
     text:{
@@ -20,6 +24,8 @@ export const AuthStyles = StyleSheet.create({
         fontWeight:'bold',
         marginTop: 4,
 
+    },
+    form:{
+        width:'80%',
     }
-
 })
