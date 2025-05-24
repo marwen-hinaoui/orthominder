@@ -1,14 +1,13 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AuthStacks from './AuthStacks'
-import MainStacks from './MainStacks'
 import * as SecureStore from 'expo-secure-store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { set_storage } from '../redux/slices';
 import { COLORS } from '../constants/colors';
-import { ICONSIZE } from '../constants/FontSizes';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Loading from '../components/Loading';
+import MainAppStacks from './MainAppStacks';
 
 const Stack = createNativeStackNavigator()
 
@@ -43,7 +42,7 @@ export default function RootStack() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {!user?.refresh
           ? <Stack.Screen name='AuthStack' component={AuthStacks} />
-          : <Stack.Screen name='MainStack' component={MainStacks} />
+          : <Stack.Screen name='MainStack' component={MainAppStacks} />
         }
       </Stack.Navigator>
     )

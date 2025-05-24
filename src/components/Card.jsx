@@ -5,7 +5,7 @@ export default function Card({children, marginTop}) {
     <View style={{
         borderRadius: 12,
         backgroundColor: COLORS.WHITE,
-        elevation: 555,
+        elevation: 777,
         padding:10,
         marginTop: marginTop,
     }}>

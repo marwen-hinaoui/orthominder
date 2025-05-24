@@ -20,6 +20,6 @@ export const ProfileStyles = StyleSheet.create({
     },
     icon:{
         fontSize:ICONSIZE.PRIMARY,
-        marginRight: 7
+        marginRight: 9
     }
 })

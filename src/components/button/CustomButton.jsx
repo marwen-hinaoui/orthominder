@@ -1,5 +1,4 @@
 import { Pressable } from 'react-native'
-import { COLORS } from '../../constants/colors'
 import ButtonContent from './ButtonContent'
 
 

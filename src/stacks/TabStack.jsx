@@ -1,4 +1,3 @@
-// import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import { COLORS } from '../constants/colors';
@@ -12,15 +11,15 @@ import { clear_storage } from '../redux/slices'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import AppointementScreen from '../screens/Appointement/AppointementScreen';
 
-const Stack = createBottomTabNavigator()
+const Tab = createBottomTabNavigator()
 
-export default function MainStacks() {
+export default function TabStack() {
   const dispatch = useDispatch()
   const logout = async () => {
     dispatch(clear_storage())
   }
   return (
-    <Stack.Navigator
+    <Tab.Navigator
         screenOptions={{
         tabBarButton: (props) => <TouchableOpacity {...props}  activeOpacity={0.1}  />,
           headerShown: false,
@@ -35,7 +34,7 @@ export default function MainStacks() {
         }}
       >
 
-      <Stack.Screen name='Home' component={ HomeScreen } 
+      <Tab.Screen name='Home' component={ HomeScreen } 
         options={{
           headerShown: true,
           header: () => <Header title="Home" />,
@@ -45,7 +44,7 @@ export default function MainStacks() {
         }}
       />
       
-      <Stack.Screen name='PhotoScreen' component={ PhotoScreen } 
+      <Tab.Screen name='PhotoScreen' component={ PhotoScreen } 
         options={{
           headerShown: true,
           header: () => <Header title="Photos" />,
@@ -54,7 +53,7 @@ export default function MainStacks() {
           )
         }}
       />
-      <Stack.Screen name='Appointement' component={ AppointementScreen } 
+      <Tab.Screen name='Appointement' component={ AppointementScreen } 
         options={{
           headerShown: true,
           header: () => <Header title="Appointement" />,
@@ -63,7 +62,7 @@ export default function MainStacks() {
           )
         }}
       />
-      <Stack.Screen name='Profile' component={ ProfileScreen } 
+      <Tab.Screen name='Profile' component={ ProfileScreen } 
         options={{
           headerShown: true,
           header: () => <Header logout={true} callback={logout} title="Profile" />,
@@ -72,8 +71,9 @@ export default function MainStacks() {
           )
         }}
       />
-    </Stack.Navigator>
-  )
+
+    </Tab.Navigator>
+)
 }
 
 
