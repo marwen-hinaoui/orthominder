@@ -11,9 +11,7 @@ export default function ContentWrapper({ children }) {
 
 const styles = StyleSheet.create({
   container: {
-    height: height,
     padding: 16,
-
-
+    height: height,
   }
 })

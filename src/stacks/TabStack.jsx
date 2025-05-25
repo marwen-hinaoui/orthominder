@@ -10,14 +10,25 @@ import { useDispatch } from 'react-redux';
 import { clear_storage } from '../redux/slices'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import AppointementScreen from '../screens/Appointement/AppointementScreen';
+import { useCallback } from 'react';
 
 const Tab = createBottomTabNavigator()
 
 export default function TabStack() {
   const dispatch = useDispatch()
+
+
+
+  const HomeHeader = useCallback(()=> <Header title="Home" /> , [])
+  const PhotoScreenHeader = useCallback(()=> <Header title="PhotoScreen" /> , [])
+  const AppointementHeader = useCallback(()=> <Header title="Appointement" /> , [])
+  const ProfileHeader = useCallback(()=> <Header logout={true} callback={logout} title="Profile" /> , [])
+
   const logout = async () => {
     dispatch(clear_storage())
   }
+
+
   return (
     <Tab.Navigator
         screenOptions={{
@@ -37,7 +48,7 @@ export default function TabStack() {
       <Tab.Screen name='Home' component={ HomeScreen } 
         options={{
           headerShown: true,
-          header: () => <Header title="Home" />,
+          header: HomeHeader,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
           )
@@ -47,7 +58,7 @@ export default function TabStack() {
       <Tab.Screen name='PhotoScreen' component={ PhotoScreen } 
         options={{
           headerShown: true,
-          header: () => <Header title="Photos" />,
+          header: PhotoScreenHeader,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="images" size={size} color={color} />
           )
@@ -56,7 +67,7 @@ export default function TabStack() {
       <Tab.Screen name='Appointement' component={ AppointementScreen } 
         options={{
           headerShown: true,
-          header: () => <Header title="Appointement" />,
+          header: AppointementHeader,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome6 name="user-doctor" size={size} color={color} />
           )
@@ -65,7 +76,7 @@ export default function TabStack() {
       <Tab.Screen name='Profile' component={ ProfileScreen } 
         options={{
           headerShown: true,
-          header: () => <Header logout={true} callback={logout} title="Profile" />,
+          header: ProfileHeader,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-sharp" size={size} color={color} />
           )

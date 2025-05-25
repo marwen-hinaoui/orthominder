@@ -37,13 +37,12 @@ export const PhotoStyles = StyleSheet.create({
     
   },
   cameraButton: {
-    backgroundColor: COLORS.PRIMARY,
-    height:60,
-    width: 60,
+
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
-    borderRadius:'50%'
+
+  
   },
 
   faceGuide: {

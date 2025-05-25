@@ -2,7 +2,7 @@ import apiInstance from "./axios"
 
 export const captureAndSend = async (cameraRef, setSuccessCount, setConfirmed, setConfirmedPhotos, setIsDetectedFace, confirmed) => {
     if (cameraRef.current && !confirmed) {
-        const photo = await cameraRef.current.takePictureAsync({ base64: false })
+        const photo = await cameraRef.current.takePictureAsync({ base64: false, skipProcessing: true })
 
         const formData = new FormData()
         formData.append('image', {

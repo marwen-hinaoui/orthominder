@@ -8,5 +8,5 @@ export const ICONSIZE ={
     SMALL:20,
     PRIMARY:22,
     LARGE:24,
-    XLARGE:26,
+    XLARGE:30,
 }

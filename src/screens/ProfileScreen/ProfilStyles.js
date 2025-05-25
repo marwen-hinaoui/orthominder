@@ -6,20 +6,24 @@ export const ProfileStyles = StyleSheet.create({
   
         display:'flex',
         alignItems:'center',
+    
     },
     avatar:{
         width:170,
         height:170,
+        alignSelf:'center',
+        marginBottom:20,
     },
     row:{
         display:'flex',
         flexDirection: 'row',
     },
     text:{
-        fontSize:FONTSIZE.PRIMARY,
+        fontSize:FONTSIZE.SMALL,
+        fontWeight:'500'
     },
     icon:{
-        fontSize:ICONSIZE.PRIMARY,
+        fontSize:ICONSIZE.SMALL,
         marginRight: 9
     }
 })
