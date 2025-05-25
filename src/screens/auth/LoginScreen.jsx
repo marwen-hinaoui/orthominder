@@ -1,4 +1,4 @@
-import { View, Text, Button, ActivityIndicator } from 'react-native'
+import { View, Text, Button, ActivityIndicator, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch, useSelector } from 'react-redux';
 import { set_login_loading, set_storage } from '../../redux/slices';
@@ -118,9 +118,12 @@ const showToast = (type, text) => {
                 loading={loading}
                 backgroundColor={COLORS.PRIMARY}
               />
-              {/* <Link> */}
-                <Text style={AuthStyles.text}>Forget password?</Text>
-              {/* </Link> */}
+              <TouchableOpacity>
+
+                {/* <Link> */}
+                  <Text style={AuthStyles.text}>Forget password?</Text>
+                {/* </Link> */}
+              </TouchableOpacity>
 
             </View>
           )}

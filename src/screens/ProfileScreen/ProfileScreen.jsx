@@ -12,23 +12,25 @@ import ContentWrapper from '../../components/ContentWrapper'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import { LinearGradient } from 'expo-linear-gradient';
 import Skeleton from 'react-native-reanimated-skeleton';
+import { FONTSIZE } from '../../constants/FontSizes'
+
+
+
 const skeletonLayout = [
+  { key: "text1", width: 230, height: 40, borderRadius: 6, marginBottom: 12},
+  { key: "text2", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
+  { key: "text3", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
+  { key: "text4", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
+  { key: "text5", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
+  { key: "text6", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
 
-  { key: "text1", width: 170, height: 36, borderRadius: 7, marginBottom: 12},
-  { key: "text2", width: 170, height: 36, borderRadius: 7, marginBottom: 12 },
-  { key: "text3", width: 170, height: 36, borderRadius: 7, marginBottom: 12 },
-  { key: "text4", width: 170, height: 36, borderRadius: 7, marginBottom: 12 },
-  { key: "text5", width: 170, height: 36, borderRadius: 7, marginBottom: 12 },
-  { key: "text6", width: 170, height: 36, borderRadius: 7, marginBottom: 12 },
+]
 
-];
+
 export default function ProfileScreen() {
     const [userData, setUserData] = useState()
     const [loading, setLoading] = useState(true)
-
     const user = useSelector(state => state.app.user)
-
-
 
   useFocusEffect(
 
@@ -52,19 +54,12 @@ export default function ProfileScreen() {
         <SafeAreaView>
 
           <ContentWrapper>
-
-          
-          
-                
-                
               <Image style={ProfileStyles.avatar} source={Avatar} />
                 <Skeleton
                   containerStyle={ProfileStyles.container}
                   isLoading={loading}
                   layout={skeletonLayout}
-                >
-
-                  
+                >                  
                   <Card marginBottom={12}>
                     <View style={ProfileStyles.row}>
                       <Ionicons style={ProfileStyles.icon} name='person' />
@@ -101,9 +96,7 @@ export default function ProfileScreen() {
                       <Text style={ProfileStyles.text}>{userData?.doctor_name || ''}</Text>
                     </View>
                 </Card>
-
                 </Skeleton>
-     
             </ContentWrapper>
         </SafeAreaView>
     )
@@ -118,7 +111,7 @@ const styles = StyleSheet.create({
 
   },
   text: {
-    fontSize: 16,
+    fontSize: FONTSIZE.PRIMARY,
     color: '#333',
   },
 });

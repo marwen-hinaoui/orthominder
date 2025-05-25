@@ -6,7 +6,7 @@ import { COLORS } from '../constants/colors';
 export default function Loading() {
   return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator color={COLORS.PRIMARY} size={ICONSIZE.LARGE} />
+        <ActivityIndicator color={COLORS.PRIMARY} size={ICONSIZE.SMALL} />
       </View>
   )
 }

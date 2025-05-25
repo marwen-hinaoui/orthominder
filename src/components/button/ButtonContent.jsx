@@ -11,7 +11,7 @@ export default function ButtonContent({loading, name, icon}) {
           <Text style={ButtonStyles.text}>{name}</Text>
           {/* <Text>{icon && <Ionicons name={icon} size={ICONSIZE.PRIMARY} style={ButtonStyles.icon} />}</Text> */}
             {!loading 
-                ?<Text>{icon && <Ionicons name={icon} size={ICONSIZE.PRIMARY} style={ButtonStyles.icon} />}</Text>
+                ?<Text>{icon && <Ionicons name={icon} size={ICONSIZE.SMALL} style={ButtonStyles.icon} />}</Text>
                 :<Text><ActivityIndicator color={COLORS.WHITE} size={ICONSIZE.PRIMARY} /></Text>
             }
     </View>

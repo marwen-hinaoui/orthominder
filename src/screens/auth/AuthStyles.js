@@ -20,7 +20,7 @@ export const AuthStyles = StyleSheet.create({
     text:{
         textAlign:'right',
         color:COLORS.BLACK,
-        fontSize:FONTSIZE.PRIMARY,
+        fontSize:FONTSIZE.SMALL,
         fontWeight:'bold',
         marginTop: 4,
 

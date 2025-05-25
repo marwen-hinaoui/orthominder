@@ -6,8 +6,9 @@ export const ButtonStyles = StyleSheet.create({
     text: {
         color:COLORS.WHITE,
         fontWeight: 'bold',
-        fontSize: FONTSIZE.PRIMARY,
+        fontSize: FONTSIZE.SMALL,
         marginRight: 5,
+
     },
     icon:{
         color:COLORS.WHITE

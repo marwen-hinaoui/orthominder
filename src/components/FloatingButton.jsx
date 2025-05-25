@@ -13,8 +13,8 @@ export default function FloatingButton({callback}) {
 
 const styles = StyleSheet.create({
     floating: {
-        width: 60,
-        height: 60,
+        width: 55,
+        height: 55,
         borderRadius: 30,
         backgroundColor: COLORS.PRIMARY,
         position: 'absolute',

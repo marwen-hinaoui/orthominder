@@ -46,7 +46,7 @@ const CustomTextInput = ({
 
     <View style={error && errors_touched ? {marginBottom: 0} : {marginBottom: 12}}>
       <View style={styles.container}>
-        <Ionicons name={iconName} size={ICONSIZE.PRIMARY} color={error && errors_touched ? COLORS.DANGER : COLORS.BLACK} style={styles.icon} />
+        <Ionicons name={iconName} size={ICONSIZE.SMALL} color={error && errors_touched ? COLORS.DANGER : COLORS.BLACK} style={styles.icon} />
         <TextInput
           style={styles.input}
           placeholder={placeholder}
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
     flex: 1,
     color: '#000',
-    fontSize: FONTSIZE.PRIMARY,
+    fontSize: FONTSIZE.SMALL,
   },
   error:{
     fontSize:FONTSIZE.SMALL,

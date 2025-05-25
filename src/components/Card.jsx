@@ -3,10 +3,10 @@ import { COLORS } from '../constants/colors'
 export default function Card({children, marginBottom}) {
   return (
     <View style={{
-        borderRadius: 7,
+        borderRadius: 6,
         backgroundColor: COLORS.WHITE,
         elevation: 777,
-        padding:7,
+        padding:10,
         marginBottom: marginBottom,
 
     }}>
