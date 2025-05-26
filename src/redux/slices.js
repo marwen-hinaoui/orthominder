@@ -8,6 +8,12 @@ const appSlices = createSlice ({
     initialState:{
     user : null,
     loginLoading : false,
+    current_aligner :
+    {
+        aligner_id:null,
+        aligner_number:null,
+        message:null,
+    },
     },
     reducers:{
         set_storage: (state, action) => {
@@ -20,10 +26,13 @@ const appSlices = createSlice ({
         },
         set_login_loading: (state, action) =>{
             state.loginLoading = action.payload
+        },
+        set_current_aligner: (state, action) =>{
+            state.current_aligner = action.payload
         }
     }
 })
 
 
-export const { set_storage, clear_storage, set_login_loading } = appSlices.actions
+export const { set_storage, clear_storage, set_login_loading, set_current_aligner} = appSlices.actions
 export default appSlices.reducer
