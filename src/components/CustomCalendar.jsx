@@ -1,16 +1,18 @@
 
 import { Calendar } from 'react-native-calendars'
 import { COLORS } from '../constants/colors'
-import Skeleton from 'react-native-reanimated-skeleton'
 import { Text, View } from 'react-native'
 import Card from '../components/Card'
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { useCallback, useMemo, useState } from 'react'
+import {  useMemo, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { FONTSIZE, ICONSIZE } from '../constants/FontSizes'
 import dayjs from 'dayjs'
 
-function getMarkedDates(start, end) {
+
+
+
+function getMarkedDates(start, end ) {
   const marked = {}
   const startDate = dayjs(start)
   const endDate = dayjs(end)
@@ -30,12 +32,13 @@ function getMarkedDates(start, end) {
 
   return marked
 }
+const today = dayjs().format('YYYY-MM-DD')
+ 
+export default function CustomCalendar({appointemnt_day, next_appointemnt_day, loading}) {
 
-export default function CustomCalendar({appointemnt_day, next_appointemnt_day}) {
 
 
-
-  const [currentDate, setCurrentDate] = useState('2025-05-25')
+  const [currentDate, setCurrentDate] = useState(today)
   const [key, setKey] = useState(0)
   const handleMonthChange = (month) => {
     setCurrentDate(`${month.year}-${String(month.month).padStart(2, '0')}-01`)
@@ -53,16 +56,21 @@ export default function CustomCalendar({appointemnt_day, next_appointemnt_day}) 
   return (
 
       
-    <View style={{padding: 8}}>
+    <View style={{padding: 12}}>
+
+
     <Card marginBottom={12}>
+      
 
 
       <Animated.View
       entering={FadeIn}
       exiting={FadeOut}
-      key={key} // Force re-render with animation
+
     >
+    
       <Calendar
+      
         theme={{
         textDayFontSize:FONTSIZE.PRIMARY,
         arrowColor: '#007bff',
@@ -92,10 +100,12 @@ export default function CustomCalendar({appointemnt_day, next_appointemnt_day}) 
         onMonthChange={handleMonthChange}
         markingType={'period'}
         markedDates={markedDates}
+        
       />
     </Animated.View>
 
     </Card>
+
     </View>
 
   )

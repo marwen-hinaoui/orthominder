@@ -8,12 +8,15 @@ import { useFocusEffect } from '@react-navigation/native'
 
 
 export default function HomeScreen({navigation}) {
-  const user = useSelector( state => state.app.user )
+  const user = useSelector( state => state.app.user)
+  const [loading, setLoading] = useState(true)
+
   const [ appointemntData, setAppointemntData ] = useState({})
     useFocusEffect(
       useCallback(
         () => {
           const fetchData = async () =>{
+            setLoading(true)
             const res = await get_appointements_details_by_patient(user)
             if(res.resData){
               setAppointemntData(res.resData)
@@ -22,6 +25,8 @@ export default function HomeScreen({navigation}) {
             }else {
               console.log(res.resError)
             }
+            setLoading(false)
+ 
           }
           fetchData()
         },
@@ -34,7 +39,7 @@ export default function HomeScreen({navigation}) {
   return (
 
         <View>
-        <CustomCalendar appointemnt_day={appointemntData.appointemnt_day} next_appointemnt_day={appointemntData.next_appointemnt_day} />
+        <CustomCalendar appointemnt_day={appointemntData.appointemnt_day} next_appointemnt_day={appointemntData.next_appointemnt_day} loading={loading} />
         </View>
       
 

@@ -10,21 +10,9 @@ import { Ionicons } from '@expo/vector-icons'
 import Card from '../../components/Card'
 import ContentWrapper from '../../components/ContentWrapper'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
-import { LinearGradient } from 'expo-linear-gradient';
-import Skeleton from 'react-native-reanimated-skeleton';
 import { FONTSIZE } from '../../constants/FontSizes'
+import Loading from '../../components/Loading'
 
-
-
-const skeletonLayout = [
-  { key: "text1", width: 230, height: 40, borderRadius: 6, marginBottom: 12},
-  { key: "text2", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
-  { key: "text3", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
-  { key: "text4", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
-  { key: "text5", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
-  { key: "text6", width: 230, height: 40, borderRadius: 6, marginBottom: 12 },
-
-]
 
 
 export default function ProfileScreen() {
@@ -47,7 +35,6 @@ export default function ProfileScreen() {
 
     }, []) 
   )
-    
 
  
     return   (
@@ -55,11 +42,13 @@ export default function ProfileScreen() {
 
           <ContentWrapper>
               <Image style={ProfileStyles.avatar} source={Avatar} />
-                <Skeleton
-                  containerStyle={ProfileStyles.container}
-                  isLoading={loading}
-                  layout={skeletonLayout}
-                >                  
+              
+              
+              
+              { (userData && !loading) 
+              
+              ?(<View style={ProfileStyles.container}>
+
                   <Card marginBottom={12}>
                     <View style={ProfileStyles.row}>
                       <Ionicons style={ProfileStyles.icon} name='person' />
@@ -96,22 +85,12 @@ export default function ProfileScreen() {
                       <Text style={ProfileStyles.text}>{userData?.doctor_name || ''}</Text>
                     </View>
                 </Card>
-                </Skeleton>
+              </View>)
+              :<Loading />
+
+            }
             </ContentWrapper>
         </SafeAreaView>
     )
 }
 
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-
-  },
-  text: {
-    fontSize: FONTSIZE.PRIMARY,
-    color: '#333',
-  },
-});

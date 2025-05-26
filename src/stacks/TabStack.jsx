@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   tapBar:{
     position: 'absolute',
     alignSelf: 'center',
-    bottom: 23,
+    bottom: 12,
     elevation: 100,
     marginHorizontal: 16,
     backgroundColor: COLORS.WHITE,

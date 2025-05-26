@@ -3,8 +3,11 @@ import { FONTSIZE, ICONSIZE } from "../../constants/FontSizes";
 
 export const ProfileStyles = StyleSheet.create({
     container:{
-        display:'flex',
-        alignItems:'center',
+
+        flex:1,
+        alignSelf:'center'
+     
+        
     
     },
     avatar:{
@@ -16,9 +19,11 @@ export const ProfileStyles = StyleSheet.create({
     row:{
         display:'flex',
         flexDirection: 'row',
+        
     },
     text:{
         fontSize:FONTSIZE.PRIMARY,
+
     },
     icon:{
         fontSize:ICONSIZE.SMALL,
